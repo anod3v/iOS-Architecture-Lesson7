@@ -13,6 +13,7 @@ final class AppDetailViewController: UIViewController {
     public var app: ITunesApp
     
     lazy var headerViewController = AppDetailHeaderViewController(app: app)
+    lazy var whatsNewViewController = AppDetailWhatsNewViewController(app: app)
     
     private let imageDownloader = ImageDownloader()
     
@@ -66,6 +67,19 @@ final class AppDetailViewController: UIViewController {
             headerViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             headerViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             headerViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        ])
+        
+        self.addChild(whatsNewViewController)
+        self.view.addSubview(whatsNewViewController.view)
+        
+        self.whatsNewViewController.didMove(toParent: self)
+        
+        whatsNewViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            whatsNewViewController.view.topAnchor.constraint(equalTo: headerViewController.view.bottomAnchor),
+            whatsNewViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            whatsNewViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         ])
     }
     

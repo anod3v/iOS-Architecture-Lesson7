@@ -12,10 +12,10 @@ class AppDetailWhatsNewViewController: UIViewController {
     
     private let app: ITunesApp
     
-    private let imageDownLoader = ImageDownloader()
+//    private let imageDownLoader = ImageDownloader()
     
-    private var appDetailHeaderView: AppDetailHeaderView {
-        return self.view as! AppDetailHeaderView
+    private var appDetailWhatsNewView: AppDetailWhatsNewView {
+        return self.view as! AppDetailWhatsNewView
     }
     
     init(app: ITunesApp) {
@@ -28,7 +28,7 @@ class AppDetailWhatsNewViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = AppDetailHeaderView()
+        self.view = AppDetailWhatsNewView()
     }
     
     override func viewDidLoad() {
@@ -38,24 +38,24 @@ class AppDetailWhatsNewViewController: UIViewController {
     }
     
     private func fillData() {
-        downloadImage()
-        appDetailHeaderView.titleLabel.text = app.appName
-        appDetailHeaderView.subtitleLabel.text = app.appName
-        appDetailHeaderView.ratingLabel.text = app.averageRating.flatMap { "\($0)" }
+//        downloadImage()
+        appDetailWhatsNewView.versionLabel.text = app.version
+        appDetailWhatsNewView.releaseNotesLabel.text = app.releaseNotes
+        appDetailWhatsNewView.currentVersionReleaseDateLabel.text = "\(app.currentVersionReleaseDate)"
     }
     
-    private func downloadImage() {
-        guard let url = self.app.iconUrl else { return }
-        
-        imageDownLoader.getImage(fromUrl: url) { [weak self] (image, _) in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                self.appDetailHeaderView.imageView.image = image
-            }
-        }
-        
-    }
+//    private func downloadImage() {
+//        guard let url = self.app.iconUrl else { return }
+//
+//        imageDownLoader.getImage(fromUrl: url) { [weak self] (image, _) in
+//            guard let self = self else { return }
+//
+//            DispatchQueue.main.async {
+//                self.appDetailWhatsNewView.imageView.image = image
+//            }
+//        }
+//
+//    }
 
 }
 
