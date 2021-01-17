@@ -47,7 +47,7 @@ class AppDetailWhatsNewView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .cyan
         label.textColor = .lightGray
-        label.font = UIFont.boldSystemFont(ofSize: 20.0)
+        label.font = UIFont.boldSystemFont(ofSize: 13.0)
         return label
     }()
     
@@ -70,21 +70,21 @@ class AppDetailWhatsNewView: UIView {
         
         NSLayoutConstraint.activate([
             whatsNewLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            whatsNewLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            whatsNewLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             whatsNewLabel.widthAnchor.constraint(equalToConstant: 200),
             whatsNewLabel.heightAnchor.constraint(equalToConstant: 20),
             
             versionLabel.topAnchor.constraint(equalTo: whatsNewLabel.bottomAnchor, constant: 10),
-            versionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            versionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             versionLabel.widthAnchor.constraint(equalToConstant: 200),
             versionLabel.heightAnchor.constraint(equalToConstant: 20),
             
             releaseNotesLabel.topAnchor.constraint(equalTo: versionLabel.bottomAnchor, constant: 10),
-            releaseNotesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            releaseNotesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             releaseNotesLabel.widthAnchor.constraint(equalToConstant: 200),
             
             currentVersionReleaseDateLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            currentVersionReleaseDateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            currentVersionReleaseDateLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             currentVersionReleaseDateLabel.widthAnchor.constraint(equalToConstant: 100),
             currentVersionReleaseDateLabel.heightAnchor.constraint(equalToConstant: 20),
         ])
