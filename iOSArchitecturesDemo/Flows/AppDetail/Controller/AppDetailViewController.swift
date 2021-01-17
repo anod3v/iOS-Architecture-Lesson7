@@ -16,9 +16,9 @@ final class AppDetailViewController: UIViewController {
     
     private let imageDownloader = ImageDownloader()
     
-    private var appDetailView: AppDetailView {
-        return self.view as! AppDetailView
-    }
+//    private var appDetailView: AppDetailView {
+//        return self.view as! AppDetailView
+//    }
     
     init(app: ITunesApp) {
         self.app = app
@@ -33,7 +33,7 @@ final class AppDetailViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.view = AppDetailView()
+//        self.view = AppDetailView()
     }
 
     override func viewDidLoad() {
