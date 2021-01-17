@@ -12,6 +12,8 @@ class AppDetailWhatsNewViewController: UIViewController {
     
     private let app: ITunesApp
     
+    let dateFormatter = DateFormatter()
+    
 //    private let imageDownLoader = ImageDownloader()
     
     private var appDetailWhatsNewView: AppDetailWhatsNewView {
@@ -38,10 +40,13 @@ class AppDetailWhatsNewViewController: UIViewController {
     }
     
     private func fillData() {
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let dateReleased = dateFormatter.string(from: app.currentVersionReleaseDate ?? Date())
+        
 //        downloadImage()
-        appDetailWhatsNewView.versionLabel.text = app.version
-        appDetailWhatsNewView.releaseNotesLabel.text = app.releaseNotes
-        appDetailWhatsNewView.currentVersionReleaseDateLabel.text = "\(app.currentVersionReleaseDate)"
+        appDetailWhatsNewView.versionLabel.text = "Версия \(app.version ?? "")"
+        appDetailWhatsNewView.releaseNotesLabel.text = app.releaseNotes ?? ""
+        appDetailWhatsNewView.currentVersionReleaseDateLabel.text = dateReleased
     }
     
 //    private func downloadImage() {
