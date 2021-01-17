@@ -12,7 +12,7 @@ class AppDetailWhatsNewView: UIView {
     
     private(set) lazy var whatsNewLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .red
+//        label.backgroundColor = .red
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -23,7 +23,7 @@ class AppDetailWhatsNewView: UIView {
     
     private(set) lazy var versionLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .purple
+//        label.backgroundColor = .purple
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -33,7 +33,7 @@ class AppDetailWhatsNewView: UIView {
     
     private(set) lazy var releaseNotesLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .green
+//        label.backgroundColor = .green
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .lightGray
         label.sizeToFit()
@@ -45,7 +45,7 @@ class AppDetailWhatsNewView: UIView {
     private(set) lazy var currentVersionReleaseDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .cyan
+//        label.backgroundColor = .cyan
         label.textColor = .lightGray
         label.font = UIFont.boldSystemFont(ofSize: 13.0)
         return label

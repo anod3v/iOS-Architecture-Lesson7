@@ -12,10 +12,6 @@ class AppDetailWhatsNewViewController: UIViewController {
     
     private let app: ITunesApp
     
-    //    let dateFormatter = DateFormatter()
-    
-    //    private let imageDownLoader = ImageDownloader()
-    
     private var appDetailWhatsNewView: AppDetailWhatsNewView {
         return self.view as! AppDetailWhatsNewView
     }
@@ -52,19 +48,6 @@ class AppDetailWhatsNewViewController: UIViewController {
         appDetailWhatsNewView.releaseNotesLabel.text = app.releaseNotes ?? ""
         appDetailWhatsNewView.currentVersionReleaseDateLabel.text = "\(daysInterval.day ?? 0) дней назад"
     }
-    
-    //    private func downloadImage() {
-    //        guard let url = self.app.iconUrl else { return }
-    //
-    //        imageDownLoader.getImage(fromUrl: url) { [weak self] (image, _) in
-    //            guard let self = self else { return }
-    //
-    //            DispatchQueue.main.async {
-    //                self.appDetailWhatsNewView.imageView.image = image
-    //            }
-    //        }
-    //
-    //    }
     
 }
 
