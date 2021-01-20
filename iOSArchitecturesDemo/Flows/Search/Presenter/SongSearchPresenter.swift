@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SongSearchViewInput: AnyObject {
-    var searchResults: [ITunesApp] { get set }
+    var searchResults: [ITunesSong] { get set }
     
     func showError(error: Error)
     func showNoResults()
@@ -19,16 +19,16 @@ protocol SongSearchViewInput: AnyObject {
 
 protocol SongSearchViewOutput: AnyObject {
     func viewDidSearch(with query: String)
-    func viewDidSelectApp(app: ITunesApp)
+    func viewDidSelectApp(app: ITunesSong)
 }
 
 class SongPresenter {
-    weak var viewInput: (UIViewController & SearchViewInput)?
+    weak var viewInput: (UIViewController & SongSearchViewInput)?
     
     private let searchService = ITunesSearchService()
     
     private func requestApp(with query: String) {
-        self.searchService.getApps(forQuery: query) { [weak self] result in
+        self.searchService.getSongs(forQuery: query) { [weak self] result in
             guard let self = self else { return }
             
             self.viewInput?.throbber(show: false)
@@ -48,10 +48,10 @@ class SongPresenter {
         }
     }
     
-    private func openDetails(for app: ITunesApp) {
-        let appDetailViewController = AppDetailViewController(app: app)
-        
-        viewInput?.navigationController?.pushViewController(appDetailViewController, animated: true)
+    private func openDetails(for app: ITunesSong) {
+//        let appDetailViewController = AppDetailViewController(app: app)
+//        
+//        viewInput?.navigationController?.pushViewController(appDetailViewController, animated: true)
     }
 }
 
@@ -61,7 +61,7 @@ extension SongPresenter: SongSearchViewOutput {
         requestApp(with: query)
     }
     
-    func viewDidSelectApp(app: ITunesApp) {
+    func viewDidSelectApp(app: ITunesSong) {
         openDetails(for: app)
     }
     

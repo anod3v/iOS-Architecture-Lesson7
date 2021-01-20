@@ -16,7 +16,7 @@ final class SongSearchViewController: UIViewController {
         return self.view as! SongSearchView
     }
     
-    private let presenter: SearchViewOutput
+    private let presenter: SongSearchViewOutput
     
     private let searchService = ITunesSearchService()
     var searchResults = [ITunesSong]() {
@@ -32,7 +32,7 @@ final class SongSearchViewController: UIViewController {
         static let reuseIdentifier2 = "reuseId2"
     }
     
-    init(presenter: SearchViewOutput) {
+    init(presenter: SongSearchViewOutput) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
