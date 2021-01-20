@@ -28,7 +28,6 @@ final class SongSearchViewController: UIViewController {
     }
     
     private struct Constants {
-        static let reuseIdentifier = "reuseId"
         static let reuseIdentifier2 = "reuseId2"
     }
     
@@ -71,7 +70,7 @@ extension SongSearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: Constants.reuseIdentifier, for: indexPath)
+        let dequeuedCell = tableView.dequeueReusableCell(withIdentifier: Constants.reuseIdentifier2, for: indexPath)
         guard let cell = dequeuedCell as? SongCell else {
             return dequeuedCell
         }
