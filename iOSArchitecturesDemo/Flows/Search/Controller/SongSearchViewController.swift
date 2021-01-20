@@ -45,7 +45,7 @@ final class SongSearchViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.view = SearchView()
+        self.view = SongSearchView()
     }
 
     override func viewDidLoad() {
