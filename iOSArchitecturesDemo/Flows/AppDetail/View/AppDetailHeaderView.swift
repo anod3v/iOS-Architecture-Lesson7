@@ -20,6 +20,7 @@ class AppDetailHeaderView: UIView {
     
     private(set) lazy var titleLabel: UILabel = {
         let label = UILabel()
+//        label.backgroundColor = .purple
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20.0)
@@ -29,6 +30,7 @@ class AppDetailHeaderView: UIView {
     
     private(set) lazy var subtitleLabel: UILabel = {
         let label = UILabel()
+//        label.backgroundColor = .green
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 14.0)

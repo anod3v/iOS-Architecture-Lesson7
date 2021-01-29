@@ -13,12 +13,13 @@ final class AppDetailViewController: UIViewController {
     public var app: ITunesApp
     
     lazy var headerViewController = AppDetailHeaderViewController(app: app)
+    lazy var whatsNewViewController = AppDetailWhatsNewViewController(app: app)
     
     private let imageDownloader = ImageDownloader()
     
-    private var appDetailView: AppDetailView {
-        return self.view as! AppDetailView
-    }
+//    private var appDetailView: AppDetailView {
+//        return self.view as! AppDetailView
+//    }
     
     init(app: ITunesApp) {
         self.app = app
@@ -33,7 +34,7 @@ final class AppDetailViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        self.view = AppDetailView()
+//        self.view = AppDetailView()
     }
 
     override func viewDidLoad() {
@@ -50,7 +51,7 @@ final class AppDetailViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .never
         
         addChildViewController()
-        addDescriptionViewController()
+//        addDescriptionViewController()
         
     }
     
@@ -67,23 +68,36 @@ final class AppDetailViewController: UIViewController {
             headerViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             headerViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         ])
-    }
-    
-    private func addDescriptionViewController() {
-        // Дз: Добавить дочерний вью контроллер
-        let vc = UIViewController()
         
-        self.addChild(vc)
-        self.view.addSubview(vc.view)
-        vc.didMove(toParent: self)
+        self.addChild(whatsNewViewController)
+        self.view.addSubview(whatsNewViewController.view)
         
-        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        self.whatsNewViewController.didMove(toParent: self)
+        
+        whatsNewViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            vc.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            vc.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-            vc.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-            vc.view.heightAnchor.constraint(equalToConstant: 250.0)
+            whatsNewViewController.view.topAnchor.constraint(equalTo: headerViewController.view.bottomAnchor),
+            whatsNewViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            whatsNewViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         ])
     }
+    
+//    private func addDescriptionViewController() {
+//        // Дз: Добавить дочерний вью контроллер
+//        let vc = UIViewController()
+//
+//        self.addChild(vc)
+//        self.view.addSubview(vc.view)
+//        vc.didMove(toParent: self)
+//
+//        vc.view.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            vc.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+//            vc.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+//            vc.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+//            vc.view.heightAnchor.constraint(equalToConstant: 250.0)
+//        ])
+//    }
 }
